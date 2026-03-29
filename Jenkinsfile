@@ -3,14 +3,14 @@ agent any
 
 
 environment {
-    IMAGE_NAME = "manojkrishnappa/shoppingassistantservice:${GIT_COMMIT}"
+    IMAGE_NAME = "anilkumar1146/shoppingassistantservice:${GIT_COMMIT}"
 }
 
 stages {
 
     stage('Git Checkout') {
         steps {
-            git url: 'https://github.com/QuntamVector/shoppingassistantservice.git', branch: 'main'
+            git url: 'https://github.com/anilkumartumkur/shoppingassistantservice.git', branch: 'main'
         }
     }
 
@@ -53,7 +53,7 @@ stages {
                             echo "gitops directory exists. Removing it..."
                             rm -rf gitops
                         fi
-                        git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/QuntamVector/GitOps.git gitops
+                        git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/$GIT_USERNAME/GitOps.git gitops
                         cd gitops/base/shoppingassistantservice/ 
 
                         git config user.email "jenkins@ci.com"
